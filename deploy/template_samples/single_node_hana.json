@@ -5,6 +5,11 @@
       "is_existing": "false",
       "name": "test-rg"
     },
+    "ppg":
+    {
+      "is_existing": "false",
+      "name": "test-ppg"
+    },
     "vnets": {
       "management": {
         "is_existing": "false",
@@ -17,9 +22,7 @@
           "nsg": {
             "is_existing": "false",
             "name": "nsg-mgmt",
-            "allowed_ips": [
-              "0.0.0.0/0"
-            ]
+            "allowed_ips": ["0.0.0.0/0"]
           }
         }
       },
@@ -65,9 +68,7 @@
           "username": "azureadm",
           "password": "Sap@hana2019!"
         },
-        "components": [
-          "hana_studio_windows"
-        ]
+        "components": ["hana_studio_windows"]
       }
     ],
     "linux": [
@@ -86,9 +87,7 @@
           "username": "azureadm",
           "password": "Sap@hana2019!"
         },
-        "components": [
-          "hana_studio_linux"
-        ]
+        "components": ["hana_studio_linux"]
       },
       {
         "name": "rti",
@@ -104,9 +103,7 @@
           "type": "key",
           "username": "azureadm"
         },
-        "components": [
-          "ansible"
-        ]
+        "components": ["ansible"]
       }
     ]
   },
@@ -186,9 +183,7 @@
           "product_version": "2.0",
           "os_type": "LINUX_X64",
           "os_version": "SLES12.3",
-          "components": [
-            "PLATFORM"
-          ]
+          "components": ["PLATFORM"]
         },
         {
           "scenario_type": "RTI",
