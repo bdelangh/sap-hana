@@ -22,7 +22,9 @@
           "nsg": {
             "is_existing": "false",
             "name": "nsg-mgmt",
-            "allowed_ips": ["0.0.0.0/0"]
+            "allowed_ips": [
+              "0.0.0.0/0"
+            ]
           }
         }
       },
