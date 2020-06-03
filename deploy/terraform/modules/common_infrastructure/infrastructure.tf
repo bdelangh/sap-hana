@@ -232,14 +232,14 @@ resource "azurerm_storage_account" "storage-bootdiag" {
 
 resource "azurerm_proximity_placement_group" "ppg" {
   count               = lookup(var.infrastructure, "ppg", false) != false ? (var.infrastructure.ppg.is_existing ? 0 : 1) : 0
-  name                = var.infrastructure.ppg.name
+  name                = lookup(var.infrastructure, "ppg", false) != false ? (var.infrastructure.ppg.name) : "ppg"
   resource_group_name = var.infrastructure.resource_group.name
   location            = var.infrastructure.region
 }
 
 
 data "azurerm_proximity_placement_group" "ppg" {
-  count               = var.infrastructure.ppg.is_existing ? 1 : 0
-  name                = var.infrastructure.ppg.name
+  count               = lookup(var.infrastructure, "ppg", false) != false ? (var.infrastructure.ppg.is_existing ? 1 : 0) : 0
+  name                = lookup(var.infrastructure, "ppg", false) != false ? (var.infrastructure.ppg.name) : "ppg"
   resource_group_name = var.infrastructure.resource_group.name
 }
