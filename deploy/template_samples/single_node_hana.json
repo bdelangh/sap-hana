@@ -70,7 +70,9 @@
           "username": "azureadm",
           "password": "Sap@hana2019!"
         },
-        "components": ["hana_studio_windows"]
+        "components": [
+          "hana_studio_windows"
+        ]
       }
     ],
     "linux": [
@@ -89,7 +91,9 @@
           "username": "azureadm",
           "password": "Sap@hana2019!"
         },
-        "components": ["hana_studio_linux"]
+        "components": [
+          "hana_studio_linux"
+        ]
       },
       {
         "name": "rti",
@@ -105,7 +109,9 @@
           "type": "key",
           "username": "azureadm"
         },
-        "components": ["ansible"]
+        "components": [
+          "ansible"
+        ]
       }
     ]
   },
@@ -185,7 +191,9 @@
           "product_version": "2.0",
           "os_type": "LINUX_X64",
           "os_version": "SLES12.3",
-          "components": ["PLATFORM"]
+          "components": [
+            "PLATFORM"
+          ]
         },
         {
           "scenario_type": "RTI",
