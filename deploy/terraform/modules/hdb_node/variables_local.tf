@@ -25,8 +25,6 @@ variable "storage-bootdiag" {
 variable "ppg" {
   description = "Details of the proximity placement group"
 }
-
-
 # Imports HANA database sizing information
 locals {
   sizes = jsondecode(file("${path.root}/../hdb_sizes.json"))
