@@ -119,12 +119,12 @@ variable "url_portal_services" {
 }
 
 variable "url_sap_hdbserver" {
-  type        = "string"
+  type        = string
   description = "The URL that points to the HDB server 122.17 bits"
 }
 
 variable "url_sap_sapcar" {
-  type        = "string"
+  type        = string
   description = "The URL that points to the SAPCAR bits"
 }
 
