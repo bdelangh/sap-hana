@@ -1,7 +1,7 @@
 # Terraform scripts to deploy HANA
 
 ## Version 1 Terraforms
-See [PoC Readme] (#PoC/README.md)
+See [PoC Readme](#PoC/README.md)
 
 Directory : [PoC/modules/single_node_hana](#PoC/modules/single_node_hana)
 Set environment via ```PoC\SPScripts\set-sp.sh``` via Azure Cloud Shell
@@ -12,7 +12,7 @@ Initialiaze Terraform via
 
 See [UsageGuide](#deploy/USAGE.md)
 
-## Service Principal
+### Service Principal
 See [Getting Started](#Documentation/getting-started.md)
 A Service Principal needs to be created.
 Script = createServicePrincipal.ps1
@@ -40,19 +40,16 @@ Scripts = createEnvironment.sh
 Run this script to set the environment variables in Linux
 Set the environment variables via source setenvironment.sh
 
-## Template Adjustment
-See [Adjusting the Template](#documentation/json-adjusting-template.md)
+### Template Adjustment
+See [Adjusting the Template](#documentation/json-adjusting-template.md)\
 Workspace directory = Deployments
-### Single HANA Deployment
+#### Single HANA Deployment
 
 ```bash
   terraform plan -var-file=<JSON configuration file> <automation_root>/sap-hana/deploy/terraform
 ```
 
-
-
-## Running the Terraform deployment
-
+### Running the Terraform deployment
 
 1. Initialize - Initialize the Terraform Workspace
 
@@ -62,13 +59,13 @@ Workspace directory = Deployments
 
 <br><br><br>
 
-## Terraform Operations
+### Terraform Operations
 
 - From the Workspace directory that you created.
 
 <br>
 
-### Initialize
+#### Initialize
 
 - Initializes the Workspace by linking in the path to the runtime code and downloading execution Providers.
 
@@ -84,7 +81,7 @@ Workspace directory = Deployments
 
 <br>
 
-### Plan
+#### Plan
 
 - A plan tests the *code* to see what changes will be made.
 - If a Statefile exists, it will compare the *code*, the *statefile*, and the *resources* in Azure in order to detect drift and will display any changes or corrections that will result, and the actions that will be performed.
@@ -95,7 +92,7 @@ Workspace directory = Deployments
 
 <br>
 
-### Apply
+#### Apply
 
 - Apply executes the work identified by the Plan.
 - A Plan is also an implicit step in the Apply that will ask for confirmation.
