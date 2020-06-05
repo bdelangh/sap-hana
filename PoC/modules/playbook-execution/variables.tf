@@ -59,7 +59,7 @@ variable "pw_db_system" {
 }
 
 variable "pw_hacluster" {
-  type        = "string"
+  type        = string
   description = "Password for the HA cluster nodes"
   default     = "" #single node case doesn't need one
 }
