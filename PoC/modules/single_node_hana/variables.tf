@@ -61,16 +61,16 @@ variable "install_webide" {
 
 variable "private_ip_address_hdb" {
   description = "The desired private IP address of this HANA database.  If it isn't specified, a dynamic IP will be allocated."
-  default     = "10.91.0.6"
+  default     = "10.95.0.6"
 }
 
 variable "private_ip_address_windows_bastion" {
   description = "The desired private IP address of this bastion host.  If it isn't specified, a dynamic IP will be allocated."
-  default     = "10.91.0.4"
+  default     = "10.95.0.4"
 }
 
 variable "private_ip_address_linux_bastion" {
-  default = "10.91.0.5"
+  default = "10.95.0.5"
 }
 
 variable "public_ip_allocation_type" {
