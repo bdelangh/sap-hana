@@ -127,7 +127,7 @@ resource "azurerm_availability_set" "hana-as" {
   resource_group_name          = var.resource-group[0].name
   platform_update_domain_count = 20
   platform_fault_domain_count  = 2
-  proximity_placement_group_id =  lookup(var.infrastructure, "ppg", false) != false ? (var.ppg[0].id) : null
+  proximity_placement_group_id = lookup(var.infrastructure, "ppg", false) != false ? (var.ppg[0].id) : null
   managed                      = true
 }
 
