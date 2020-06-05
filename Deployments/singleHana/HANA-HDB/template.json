@@ -1,0 +1,182 @@
+{
+  "infrastructure": {
+    "region": "westus",
+    "resource_group": {
+      "is_existing": "false",
+      "name": "bdlSingleHANA"
+    },
+    "ppg": {
+      "is_existing": "false",
+      "name": "bdlsinglehana-ppg"
+    },
+    "vnets": {
+      "management": {
+        "is_existing": "false",
+        "name": "bdlsinglehana-mgmt",
+        "address_space": "10.91.0.0/16",
+        "subnet_mgmt": {
+          "is_existing": "false",
+          "name": "subnet-mgmt",
+          "prefix": "10.91.1.0/24",
+          "nsg": {
+            "is_existing": "false",
+            "name": "nsg-mgmt",
+            "allowed_ips": [
+              "0.0.0.0/0"
+            ]
+          }
+        }
+      },
+      "sap": {
+        "is_existing": "false",
+        "name": "bdlsinglehana-sap",
+        "address_space": "10.92.0.0/16",
+        "subnet_admin": {
+          "is_existing": "false",
+          "name": "subnet-admin",
+          "prefix": "10.92.1.0/24",
+          "nsg": {
+            "is_existing": "false",
+            "name": "nsg-admin"
+          }
+        },
+        "subnet_db": {
+          "is_existing": "false",
+          "name": "subnet-db",
+          "prefix": "10.92.2.0/24",
+          "nsg": {
+            "is_existing": "false",
+            "name": "nsg-db"
+          }
+        }
+      }
+    }
+  },
+  "jumpboxes": {
+    "windows": [
+    ],
+    "linux": [
+      {
+        "name": "rti",
+        "destroy_after_deploy": "false",
+        "size": "Standard_D2s_v3",
+        "disk_type": "StandardSSD_LRS",
+        "os": {
+          "publisher": "Canonical",
+          "offer": "UbuntuServer",
+          "sku": "18.04-LTS"
+        },
+        "authentication": {
+          "type": "key",
+          "username": "bdelangh"
+        },
+        "components": [
+          "ansible"
+        ]
+      }
+    ]
+  },
+  "databases": [
+    {
+      "platform": "HANA",
+      "db_version": "2.00.043",
+      "os": {var-os-image},
+      "size": "Demo",
+      "filesystem": "xfs",
+      "high_availability": false,
+      "authentication": {
+        "type": "key",
+        "username": "bdelangh"
+      },
+      "instance": {
+        "sid": "HN1",
+        "instance_number": "00"
+      },
+      "credentials": {
+        "db_systemdb_password": "myPassword!1",
+        "os_sidadm_password": "myPassword!1",
+        "os_sapadm_password": "myPassword!1",
+        "xsa_admin_password": "myPassword!1",
+        "cockpit_admin_password": "myPassword!1",
+        "ha_cluster_password": ""
+      },
+      "components": {
+        "hana_database": []
+      },
+      "xsa": {
+        "routing": "ports"
+      },
+      "shine": {
+        "email": "shinedemo@microsoft.com"
+      },
+      "dbnodes": [
+        {
+          "name": "hdb-node1",
+          "role": "worker"
+        }
+      ],
+      "loadbalancer": {}
+    }
+  ],
+  "software": {
+    "storage_account_sapbits": {
+      "is_existing": true,
+      "account_tier": "Premium",
+      "account_replication_type": "LRS",
+      "account_kind": "FileStorage",
+      "file_share_name": "bits",
+      "container_access_type": "private",
+      "storage_account_name": "sapbitsforpipeline",
+      "storage_access_key": "var-sa-access-key",
+      "arm_id": "var-sa-arm-id"
+    },
+    "downloader": {
+      "credentials": {
+        "sap_user": "var-sap-user",
+        "sap_password": "var-sap-password"
+      },
+      "scenarios": [
+        {
+          "scenario_type": "DB",
+          "product_name": "HANA",
+          "product_version": "2.0",
+          "os_type": "LINUX_X64",
+          "os_version": "SLES12.3",
+          "components": [
+            "PLATFORM"
+          ]
+        },
+        {
+          "scenario_type": "RTI",
+          "product_name": "RTI",
+          "os_type": "LINUX_X64"
+        },
+        {
+          "scenario_type": "BASTION",
+          "os_type": "NT_X64"
+        },
+        {
+          "scenario_type": "BASTION",
+          "os_type": "LINUX_X64"
+        }
+      ],
+      "debug": {
+        "enabled": false,
+        "cert": "charles.pem",
+        "proxies": {
+          "http": "http://127.0.0.1:8888",
+          "https": "https://127.0.0.1:8888"
+        }
+      }
+    }
+  },
+  "sshkey": {
+    "path_to_public_key": "/tmp/sshkey.pub",
+    "path_to_private_key": "/tmp/sshkey"
+  },
+  "options": {
+    "enable_secure_transfer": true,
+    "ansible_execution": false,
+    "enable_prometheus": true
+  }
+}
