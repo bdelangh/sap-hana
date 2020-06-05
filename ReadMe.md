@@ -4,8 +4,11 @@
 See [PoC Readme](#PoC/README.md)
 
 Directory : [PoC/modules/single_node_hana](#PoC/modules/single_node_hana)
-Set environment via ```PoC\SPScripts\set-sp.sh``` via Azure Cloud Shell
-Initialiaze Terraform via 
+- Set environment via ```PoC\SPScripts\set-sp.sh``` via Azure Cloud Shell
+- Initialiaze using  ```terraform init```
+- Plan using ```terraform plan```
+- Deploy using ```terraform apply```
+- Remove using ```terraform destroy```
 
 
 ## Version 2 Terraforms
