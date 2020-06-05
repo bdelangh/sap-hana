@@ -240,6 +240,6 @@ resource "azurerm_proximity_placement_group" "ppg" {
 
 data "azurerm_proximity_placement_group" "ppg" {
   count               = lookup(var.infrastructure, "ppg", false) != false ? (var.infrastructure.ppg.is_existing ? 1 : 0) : 0
-  name                = azurerm_resource_group.resource-group[0].name 
-  resource_group_name = var.infrastructure.resource_group.name
+  name                = var.infrastructure.ppg.name
+  resource_group_name = azurerm_resource_group.resource-group[0].name
 }
