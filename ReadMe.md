@@ -1,6 +1,16 @@
 # Terraform scripts to deploy HANA
 
-[UsageGuide](#deploy/USAGE.md)
+## Version 1 Terraforms
+See [PoC Readme] (#PoC/README.md)
+
+Directory : [PoC/modules/single_node_hana](#PoC/modules/single_node_hana)
+Set environment via ```PoC\SPScripts\set-sp.sh``` via Azure Cloud Shell
+Initialiaze Terraform via 
+
+
+## Version 2 Terraforms
+
+See [UsageGuide](#deploy/USAGE.md)
 
 ## Service Principal
 See [Getting Started](#Documentation/getting-started.md)
