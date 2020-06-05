@@ -41,10 +41,22 @@ module "hdb_node" {
   ssh-timeout      = var.ssh-timeout
   sshkey           = var.sshkey
   resource-group   = module.common_infrastructure.resource-group
-  subnet-sap-admin = module.common_infrastructure.subnet-sap-admin
-  nsg-admin        = module.common_infrastructure.nsg-admin
-  subnet-sap-db    = module.common_infrastructure.subnet-sap-db
-  nsg-db           = module.common_infrastructure.nsg-db
+  vnet-sap         = module.common_infrastructure.vnet-sap
+  storage-bootdiag = module.common_infrastructure.storage-bootdiag
+}
+
+# Create Application Tier nodes
+module "app_tier" {
+  source           = "./modules/app_tier"
+  databases        = var.databases
+  infrastructure   = var.infrastructure
+  jumpboxes        = var.jumpboxes
+  options          = var.options
+  software         = var.software
+  ssh-timeout      = var.ssh-timeout
+  sshkey           = var.sshkey
+  resource-group   = module.common_infrastructure.resource-group
+  vnet-sap         = module.common_infrastructure.vnet-sap
   storage-bootdiag = module.common_infrastructure.storage-bootdiag
 }
 
