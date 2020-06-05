@@ -5,8 +5,7 @@
       "is_existing": "false",
       "name": "test-rg"
     },
-    "ppg":
-    {
+    "ppg": {
       "is_existing": "false",
       "name": "test-ppg"
     },
