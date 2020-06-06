@@ -6,6 +6,7 @@
     state=present
   with_items:
     - gptfdisk
+    - gdisk
     - sg3_utils
     - lvm2
   register: result
