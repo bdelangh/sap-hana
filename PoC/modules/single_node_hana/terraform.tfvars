@@ -5,7 +5,7 @@ az_region = "westeurope"
 az_resource_group = "bdl-singleHANA2"
 
 # Unique domain name for easy VM access (example: "hana-on-azure1")
-az_domain_name = "bdl-hana"
+az_domain_name = "bdl-hana2"
 
 # Size of the VM to be deployed (example: "Standard_E8s_v3")
 # For HANA platform edition, a minimum of 32 GB of RAM is recommended
