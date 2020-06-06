@@ -1,0 +1,2 @@
+ansible-playbook -u bdelangh --private-key '~/.ssh/id_rsa' --extra-vars="{ "sap_sid": "HN1"}" -i '../../ansible/azure_rm.py' single_node_test_yml
+ansible-playbook -u bdelangh --private-key '~/.ssh/id_rsa' --extra-vars="{ "sap_sid": "HN1", "package_retries_cnt": "1", "package_retries_delay": "1"}" -i testHosts single_node_test.yml
