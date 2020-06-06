@@ -65,6 +65,7 @@ resource "azurerm_virtual_machine" "vm" {
      version   = "latest"
   }
 
+  #Version 1 Image
   #storage_image_reference {
   #  publisher = "SUSE"
   #  offer = "SLES-SAP"
