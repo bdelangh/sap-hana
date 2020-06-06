@@ -58,11 +58,18 @@ resource "azurerm_virtual_machine" "vm" {
     managed_disk_type = "Premium_LRS"
   }
 
+  #storage_image_reference {
+  #  publisher = "SUSE"
+  #  offer     = "sles-sap-12-sp5"
+  #  sku       = "gen1"
+  #   version   = "latest"
+  # }
+
   storage_image_reference {
     publisher = "SUSE"
-    offer     = "sles-sap-12-sp5"
-    sku       = "gen1"
-    version   = "latest"
+    offer = "SLES-SAP"
+    sku = "12-SP3"
+    version = "latest"
   }
 
   os_profile {
