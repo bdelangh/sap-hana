@@ -324,9 +324,19 @@ We look forward to your feedback and welcome any contributions!
 
 Please freel free to reach out to our team at ![image](http://safemail.justlikeed.net/e/3149a6fc0a17ff3863440aa38a16501b.png).
 
+## Process
+The Terraform single_node_hana calls the following Terraform modules:
+- create_hdb_node
+- generic_vm_and_disk_creation
+- generic_nic_and_pip
+- playbook_exection
+
+The Terraform ´´´playbook_exection´´´ module hands over to Ansible. The output of this modules is the shell commands used to call ansible.
+
 ## Test 
 Test Script for ansible in PoC\ansible\single_node_test.yml
 Command to execute : see single_node_test.cmd.
+
 Note :
 - you can use the testHosts os ansible inventory
 - Actual program uses a dynamic inventory using script azure_rm.py
