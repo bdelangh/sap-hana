@@ -35,6 +35,14 @@ url_sap_sapcar_linux = "https://bdlsapmedia.blob.core.windows.net/sapmediastagin
 # HANA 2
 url_sap_hdbserver = "https://bdlsapmedia.blob.core.windows.net/sapmediastaging/SapBits2/IMDB_SERVER20_035_0-80002031.SAR"
 
+url_di_core = "https://bdlsapmedia.blob.core.windows.net/sapmediastaging/SapBits2/XSACDEVXDI12_9-70001255.ZIP"
+url_sapui5  = "https://bdlsapmedia.blob.core.windows.net/sapmediastaging/SapBits2/XSACUI5FESV452_22-70003351.ZIP"
+url_portal_services = "https://bdlsapmedia.blob.core.windows.net/sapmediastaging/SapBits2/XSACPORTALSERV02_4-80002098.ZIP"
+url_xs_services = "https://bdlsapmedia.blob.core.windows.net/sapmediastaging/SapBits2/XSACSERVICES06_11-70002361.ZIP"
+url_cockpit = "https://bdlsapmedia.blob.core.windows.net/sapmediastaging/SapBits2/SAPHANACOCKPIT08_7-70002299.SAR"
+url_xsa_runtime = "https://bdlsapmedia.blob.core.windows.net/sapmediastaging/SapBits2/EXTAPPSER00P_71-70001316.SAR"
+url_shine_xsa = "https://bdlsapmedia.blob.core.windows.net/sapmediastaging/SapBits2/XSACSHINE05_3-70002323.ZIP"
+
 # Password for the OS sapadm user
 pw_os_sapadm = "myPassword!1"
 
