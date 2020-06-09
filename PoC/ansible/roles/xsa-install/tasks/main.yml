@@ -61,7 +61,7 @@
   delay: "{{ url_retries_delay }}"
 
 - name: Extract XSA Runtime
-  command: ./SAPCAR_LINUX.EXE -manifest SIGNATURE.SMF -xvf EXTAPPSER00P_87-70001316.SAR -R EXTAPPSER00P_87
+  command: ./SAPCAR_LINUX.EXE -manifest SIGNATURE.SMF -xvf EXTAPPSER00P_71-70001316.SAR -R EXTAPPSER00P_71
   args:
     chdir: /hana/shared/install
     creates: /hana/shared/install/EXTAPPSER00P_87
