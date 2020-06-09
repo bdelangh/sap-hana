@@ -306,6 +306,8 @@ Depending on your application requirements, you may need to download additional 
 | WebIDE | | SP00 Patch2  | `XSACSAPWEBIDE00_2-80002257.ZIP` | XSA + WebIDE | `url_xsa_webide` |
 | MTA ext | | SAP Note 2336392  | `sap-xsac-devx-4.0.18.mtaext` | XSA + WebIDE | `url_xsa_mta` |
 
+Note : sar file of XS Advanced Runtime is hardcoded in role xsa_install
+
 ## Contributions
 
 If you want to contribute to our project, be sure to review the [contributing guidelines](CONTRIBUTING.md).
