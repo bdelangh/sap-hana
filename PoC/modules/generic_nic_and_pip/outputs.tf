@@ -18,3 +18,8 @@ output "nic_name" {
   value       = azurerm_network_interface.nic.name
 }
 
+output "ip" {
+  description = "The public IP address"
+  value = azurerm_public_ip.pip.ip_address
+}
+
