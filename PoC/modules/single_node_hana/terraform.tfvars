@@ -70,15 +70,19 @@ email_shine = "shine@myemailaddress.com"
 useHana2 = true
 
 # Set this flag to true when installing the XSA application server
-install_xsa = true
+# To Be tested
+install_xsa = false
 
 # Set this flag to true when installing SHINE demo content (requires XSA)
-install_shine = true
+# To be tested
+install_shine = false
 
 # Set this flag to true when installing Cockpit (requires XSA)
+# To be tested
 install_cockpit = false
 
 # Set this flag to true when installing WebIDE (requires XSA)
+# To be tested
 install_webide = false
 
 # Set this to be a list of the ip addresses that should be allowed by the NSG.
