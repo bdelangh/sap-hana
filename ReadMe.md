@@ -4,14 +4,16 @@
 See [PoC Readme](#PoC/README.md) for more info.
 
 Directory : [PoC/modules/single_node_hana](#PoC/modules/single_node_hana)
-- Set environment via ```PoC\SPScripts\source set-sp.sh``` via Azure Cloud Shell
-- Initialiaze using  ```terraform init```
-- Plan using ```terraform plan```
-- Deploy using ```terraform apply```
-- Remove using ```terraform destroy```
+- Set environment via `PoC\SPScripts\source set-sp.sh` via Azure Cloud Shell
+- check environment via `env | grep AZURE` and `env | grep ARM`
+- Initialiaze using  `terraform init`
+- Plan using `terraform plan`
+- Deploy using `terraform apply`
+- Remove using `terraform destroy`
 
 Pay attention to the python version
 If python3 then the ansible & azure sdk library for python3 needs to be installed
+
 ```pip3 install ansible```
 
 For the Python Azure SDK you'll need multiple libraries.
