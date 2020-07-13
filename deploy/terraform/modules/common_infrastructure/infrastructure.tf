@@ -189,7 +189,7 @@ resource "azurerm_storage_account" "storage-sapbits" {
   name                      = lookup(var.software.storage_account_sapbits, "name", false) ? var.software.storage_account_sapbits.name : "sapbits${random_id.random-id.hex}"
   resource_group_name       = var.infrastructure.resource_group.is_existing ? data.azurerm_resource_group.resource-group[0].name : azurerm_resource_group.resource-group[0].name
   location                  = var.infrastructure.region
-  account_replication_type  = "LRS"
+  account_replication_type  = var.software.storage_account_sapbits.account_replication_type
   account_tier              = var.software.storage_account_sapbits.account_tier
   account_kind              = var.software.storage_account_sapbits.account_kind
   enable_https_traffic_only = var.options.enable_secure_transfer == "" ? true : var.options.enable_secure_transfer
