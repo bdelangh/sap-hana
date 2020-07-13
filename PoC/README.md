@@ -333,13 +333,13 @@ The Terraform single_node_hana calls the following Terraform modules:
 - generic_nic_and_pip
 - playbook_exection
 
-The Terraform ´´´playbook_exection´´´ module hands over to Ansible. The output of this modules is the shell commands used to call ansible.
+The Terraform ´playbook_exection´ module hands over to Ansible. The output of this modules is the shell commands used to call ansible.
 
 ## Test 
 Test Script for ansible in PoC\ansible\single_node_test.yml
 Command to execute : see single_node_test.cmd.
 
-Note :
+### Note :
 - you can use the testHosts os ansible inventory
 - Actual program uses a dynamic inventory using script azure_rm.py
 - Pay attention to the python version if python 3 is used, then probably ansible for python3 needs to be installed.\
