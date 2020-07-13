@@ -306,6 +306,8 @@ Depending on your application requirements, you may need to download additional 
 | WebIDE | | SP00 Patch2  | `XSACSAPWEBIDE00_2-80002257.ZIP` | XSA + WebIDE | `url_xsa_webide` |
 | MTA ext | | SAP Note 2336392  | `sap-xsac-devx-4.0.18.mtaext` | XSA + WebIDE | `url_xsa_mta` |
 
+Note : sar file of XS Advanced Runtime is hardcoded in role xsa_install
+
 ## Contributions
 
 If you want to contribute to our project, be sure to review the [contributing guidelines](CONTRIBUTING.md).
@@ -323,4 +325,28 @@ Licensed under the [MIT License](LICENSE).
 We look forward to your feedback and welcome any contributions!
 
 Please freel free to reach out to our team at ![image](http://safemail.justlikeed.net/e/3149a6fc0a17ff3863440aa38a16501b.png).
+
+## Process
+The Terraform single_node_hana calls the following Terraform modules:
+- create_hdb_node
+- generic_vm_and_disk_creation
+- generic_nic_and_pip
+- playbook_exection
+
+The Terraform ´´´playbook_exection´´´ module hands over to Ansible. The output of this modules is the shell commands used to call ansible.
+
+## Test 
+Test Script for ansible in PoC\ansible\single_node_test.yml
+Command to execute : see single_node_test.cmd.
+
+Note :
+- you can use the testHosts os ansible inventory
+- Actual program uses a dynamic inventory using script azure_rm.py
+- Pay attention to the python version if python 3 is used, then probably ansible for python3 needs to be installed.\
+  The Playbook can not find any hosts if this script does not work.
+    ```pip3 install ansible```
+- For more info on the script, see [Configure dynamic inventories of your Azure resources using Ansible](https://docs.microsoft.com/en-us/azure/developer/ansible/dynamic-inventory-configure)
+- For more info on Azure and Ansible, see [Microsoft Ansible Labs](https://github.com/microsoft/ansiblelabs)
+- The dynamic inventory script needs the AZURE environment variables
+- The dynamic inventory script uses tags like hdb0 to detect the inventory
 
