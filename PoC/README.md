@@ -345,6 +345,7 @@ Command to execute : see single_node_test.cmd.
 - Pay attention to the python version if python 3 is used, then probably ansible for python3 needs to be installed.\
   The Playbook can not find any hosts if this script does not work.
     ```pip3 install ansible```
+- To check the python version ansible is using ``ànsible --version```
 - For more info on the script, see [Configure dynamic inventories of your Azure resources using Ansible](https://docs.microsoft.com/en-us/azure/developer/ansible/dynamic-inventory-configure)
 - For more info on Azure and Ansible, see [Microsoft Ansible Labs](https://github.com/microsoft/ansiblelabs)
 - The dynamic inventory script needs the AZURE environment variables

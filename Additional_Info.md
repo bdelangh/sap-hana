@@ -27,12 +27,29 @@ which run different roles to configure and VMs and install SAP HANA and required
 A typical deployment lifecycle will require the following steps:
 
 Step 1) [**Preparing your environment**](/documentation/getting-started.md#preparing-your-environment) (this has to be done only once)
+Load the Environment Variables
+```
+cd SPScripts
+chmod +x *.sh
+./createEnvironmentLinux.sh
+chmod +x *.sh
+source set-sp.sh
+```
 
 Step 2) [**Select Terraform Deployment Unit**](#terraform-deployment-units)
 
    *(**Note**: There are some script under [sap-hana/util](https://github.com/Azure/sap-hana/tree/master/util) would help if you are using Linux based workstation)*
 
 <br>
+
+## Deployment for singleHana
+```
+
+terraform init --upgrade=true deploy/terraform 
+#from root dir
+terraform plan --var-file=config/singleHANA.json deploy/terraform
+
+```
 
 ## Terraform Deployment Units
 
@@ -46,25 +63,3 @@ Step 2) [**Select Terraform Deployment Unit**](#terraform-deployment-units)
 <br><br><br><br>  
 
 ---
-
-## Contributions
-
-If you want to contribute to our project, be sure to review the [contributing guidelines](/documentation/contributing.md).
-
-We use [GitHub issues](https://github.com/Azure/sap-hana/issues/) for feature requests and bugs.
-
-<br>
-
-## License & Copyright
-
-Copyright © 2018-2020 Microsoft Azure.
-
-Licensed under the [MIT License](LICENSE).
-
-<br>
-
-## Contact
-
-We look forward to your feedback and welcome any contributions!
-
-Please feel free to reach out to our team at ![image](/documentation/assets/contact.png).
