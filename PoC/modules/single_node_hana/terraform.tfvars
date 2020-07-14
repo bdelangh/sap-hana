@@ -87,3 +87,16 @@ install_webide = false
 
 # Set this to be a list of the ip addresses that should be allowed by the NSG.
 allow_ips = ["0.0.0.0/0"]
+
+# Vnet Address space
+vnet_address_space = "10.95.0.0/21"
+
+# HDB Subnet Address space
+hdb_subnet_address_space = "10.95.0.0/24"
+
+# The desired private IP address of this HANA database.
+private_ip_address_hdb = "10.95.0.6"
+
+# The desired private IP address of this bastion host.  If it isn't specified, a dynamic IP will be allocated.
+private_ip_address_windows_bastion = "10.95.0.4"
+private_ip_address_linux_bastion   = "10.95.0.5"

@@ -6,7 +6,7 @@ output "fqdn" {
   value = module.nic_and_pip_setup.fqdn
 }
 
-output "ip" {
-  value = module.nic_and_pip_setup.ip
+output "hdb_ip" {
+  value = module.nic_and_pip_setup.pip_ip
 }
 

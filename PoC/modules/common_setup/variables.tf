@@ -43,6 +43,16 @@ variable "windows_bastion" {
   default     = false
 }
 
+variable "vnet_address_space" {
+  description = "Vnet Address space"
+  default     = false
+}
+
+variable "hdb_subnet_address_space" {
+  description = "HDB Subnet Address space"
+  default     = false
+}
+
 locals {
   all_ips      = ["0.0.0.0/0"]
   empty_string = ""

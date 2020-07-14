@@ -7,9 +7,8 @@ output "hdb_fqdn" {
 }
 
 output "hdb_ip" {
-  value = module.create_hdb.ip
+  value = module.create_hdb.hdb_ip
 }
-
 
 output "windows_bastion_ip" {
   value = module.windows_bastion_host.ip

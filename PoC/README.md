@@ -342,6 +342,7 @@ Command to execute : see single_node_test.cmd.
 ### Note :
 - you can use the testHosts os ansible inventory
 - Actual program uses a dynamic inventory using script azure_rm.py
+- This python script needs to be executable ```chmod +x *.py```
 - Pay attention to the python version if python 3 is used, then probably ansible for python3 needs to be installed.\
   The Playbook can not find any hosts if this script does not work.
     ```pip3 install ansible```
@@ -350,4 +351,5 @@ Command to execute : see single_node_test.cmd.
 - For more info on Azure and Ansible, see [Microsoft Ansible Labs](https://github.com/microsoft/ansiblelabs)
 - The dynamic inventory script needs the AZURE environment variables
 - The dynamic inventory script uses tags like hdb0 to detect the inventory
+- [Git Fork & Pull](https://reflectoring.io/github-fork-and-pull/) 
 

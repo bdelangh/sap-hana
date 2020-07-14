@@ -238,6 +238,16 @@ variable "linux_bastion" {
   default     = false
 }
 
+variable "vnet_address_space" {
+  description = "Vnet Address space"
+  default     = false
+}
+
+variable "hdb_subnet_address_space" {
+  description = "HDB Subnet Address space"
+  default     = false
+}
+
 locals {
   #name of the linux vm
   linux_vm_name = "${var.az_domain_name}-linux-bastion"

@@ -14,6 +14,8 @@ module "common_setup" {
   sap_instancenum   = var.sap_instancenum
   sap_sid           = var.sap_sid
   use_existing_nsg  = var.use_existing_nsg
+  vnet_address_space       = var.vnet_address_space
+  hdb_subnet_address_space = var.hdb_subnet_address_space
   windows_bastion   = var.windows_bastion
 }
 
@@ -94,21 +96,3 @@ module "configure_vm" {
   bastion_username_windows = var.bastion_username_windows
   pw_bastion_windows       = var.pw_bastion_windows
 }
-
-# Destroy the linux bastion host
-resource "null_resource" "destroy-vm" {
-  provisioner "local-exec" {
-    when = destroy
-
-    command = <<EOT
-               OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES \
-               AZURE_RESOURCE_GROUPS="${var.az_resource_group}" \
-               ANSIBLE_HOST_KEY_CHECKING="False" \
-               ansible-playbook -u '${var.vm_user}' \
-               --private-key '${var.sshkey_path_private}' \
-               --extra-vars="{az_resource_group: \"${module.common_setup.resource_group_name}\", az_vm_name: \"${local.linux_vm_name}\", linux_bastion: \"${var.linux_bastion}\"}" ../../ansible/delete_bastion_linux.yml
-EOT
-
-  }
-}
-
