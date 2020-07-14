@@ -21,7 +21,7 @@
 .idea/
 
 # service principal auth secrets
-set-sp.sh
+# set-sp.sh
 
 # ignore any clustering auth scripts
 set-clustering-auth*.sh
