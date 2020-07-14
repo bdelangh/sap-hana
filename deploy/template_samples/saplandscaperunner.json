@@ -5,6 +5,10 @@
             "is_existing": "false",
             "name": "saplandscaperunner-rg"
         },
+        "ppg": {
+          "is_existing": "false",
+          "name": "test-ppg"
+        },
         "vnets": {
             "management": {
                 "is_existing": "false",
@@ -72,26 +76,7 @@
     },
     "jumpboxes": {
         "windows": [],
-        "linux": [
-            {
-                "name": "rti",
-                "destroy_after_deploy": "true",
-                "size": "Standard_D2s_v3",
-                "disk_type": "StandardSSD_LRS",
-                "os": {
-                    "publisher": "Canonical",
-                    "offer": "UbuntuServer",
-                    "sku": "18.04-LTS"
-                },
-                "authentication": {
-                    "type": "key",
-                    "username": "azureadm"
-                },
-                "components": [
-                    "ansible"
-                ]
-            }
-        ]
+        "linux": []
     },
     "databases": [
         {
