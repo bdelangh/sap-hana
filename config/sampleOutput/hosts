@@ -1,0 +1,37 @@
+[iscsi]
+
+[jumpboxes_windows]
+
+[jumpboxes_linux]
+10.96.1.4  ansible_connection=ssh  ansible_user=bdelangh
+10.96.1.5  ansible_connection=ssh  ansible_user=bdelangh
+
+[all_jumpboxes]
+10.96.1.4  ansible_connection=ssh  ansible_user=bdelangh
+10.96.1.5  ansible_connection=ssh  ansible_user=bdelangh
+
+[all_linux_servers]
+10.96.1.4  ansible_connection=ssh  ansible_user=bdelangh
+10.96.1.5  ansible_connection=ssh  ansible_user=bdelangh
+10.97.1.10  ansible_connection=ssh  ansible_user=bdelangh
+10.97.3.10  ansible_connection=ssh ansible_user=bdelangh
+
+10.97.3.14  ansible_connection=ssh ansible_user=bdelangh
+10.97.3.15  ansible_connection=ssh ansible_user=bdelangh
+10.97.3.16  ansible_connection=ssh ansible_user=bdelangh
+
+10.97.3.24  ansible_connection=ssh ansible_user=bdelangh
+
+[hanadbnodes]
+10.97.1.10  ansible_connection=ssh  ansible_user=bdelangh
+
+[scs]
+10.97.3.10  ansible_connection=ssh ansible_user=bdelangh
+
+[app]
+10.97.3.14  ansible_connection=ssh ansible_user=bdelangh
+10.97.3.15  ansible_connection=ssh ansible_user=bdelangh
+10.97.3.16  ansible_connection=ssh ansible_user=bdelangh
+
+[web]
+10.97.3.24  ansible_connection=ssh ansible_user=bdelangh

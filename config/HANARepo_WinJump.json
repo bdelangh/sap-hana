@@ -1,0 +1,195 @@
+{
+    "infrastructure": {
+      "region": "westeurope",
+      "resource_group": {
+        "is_existing": "false",
+        "arm_id":"",
+        "name": "bdlSingleHANAv2"
+      },
+      "ppg": {
+        "is_existing": "false",
+        "name": "bdlsinglehanav2-ppg",
+        "arm_id":""
+      },
+      "vnets": {
+        "management": {
+          "is_existing": "false",
+          "name": "vnet-mgmt",
+          "address_space": "10.96.0.0/16",
+          "subnet_mgmt": {
+            "is_existing": "false",
+            "name": "subnet-mgmt",
+            "prefix": "10.96.1.0/24",
+            "nsg": {
+              "is_existing": "false",
+              "name": "nsg-mgmt",
+              "allowed_ips": [
+                "0.0.0.0/0"
+              ]
+            }
+          }
+        },
+        "sap": {
+          "is_existing": "false",
+          "name": "vnet-sap",
+          "address_space": "10.97.0.0/16",
+          "subnet_admin": {
+            "is_existing": "false",
+            "name": "subnet-admin",
+            "prefix": "10.97.1.0/24",
+            "nsg": {
+              "is_existing": "false",
+              "name": "nsg-admin"
+            }
+          },
+          "subnet_db": {
+            "is_existing": "false",
+            "name": "subnet-db",
+            "prefix": "10.97.2.0/24",
+            "nsg": {
+              "is_existing": "false",
+              "name": "nsg-db"
+            }
+          },
+          "subnet_app": {
+            "is_existing": "false",
+            "name": "subnet-app",
+            "prefix": "10.97.3.0/24",
+            "nsg": {
+              "is_existing": "false",
+              "name": "nsg-app"
+            }
+          }
+        }
+      }
+    },
+    "jumpboxes": {
+      "windows":[
+        {
+            "name": "rtiwin",
+            "destroy_after_deploy": "false",
+            "size": "Standard_D2s_v3",
+            "disk_type": "StandardSSD_LRS",
+            "os": {
+                "publisher": "MicrosoftWindowsServer",
+                "offer": "WindowsServer",
+                "sku": "2016-Datacenter"
+            },
+            "authentication": {
+              "type": "key",
+              "username": "bdelangh",
+              "password": "myPassword!1"
+            },
+            "components": [
+                "hana_studio_windows"
+            ]
+        }
+      ],
+      "linux": [
+        {
+          "name": "rtilin",
+          "destroy_after_deploy": "false",
+          "size": "Standard_D2s_v3",
+          "disk_type": "StandardSSD_LRS",
+          "os": {
+            "publisher": "Canonical",
+            "offer": "UbuntuServer",
+            "sku": "18.04-LTS"
+          },
+          "authentication": {
+            "type": "key",
+            "username": "bdelangh"
+          },
+          "components": [
+            "ansible"
+          ]
+        }
+      ]
+    },
+    "databases": [
+      {
+        "platform": "HANA",
+        "db_version": "2.00.043",
+        "os": {
+          "publisher": "SUSE",
+          "offer": "sles-sap-12-sp5",
+          "sku":"gen1"
+        },
+        "size": "Demo",
+        "filesystem": "xfs",
+        "high_availability": false,
+        "authentication": {
+          "type": "key",
+          "username": "bdelangh"
+        },
+        "instance": {
+          "sid": "HN1",
+          "instance_number": "00"
+        },
+        "credentials": {
+          "db_systemdb_password": "myPassword!1",
+          "os_sidadm_password": "myPassword!1",
+          "os_sapadm_password": "myPassword!1",
+          "xsa_admin_password": "myPassword!1",
+          "cockpit_admin_password": "myPassword!1",
+          "ha_cluster_password": ""
+        },
+        "components": {
+          "hana_database": []
+        },
+        "xsa": {
+          "routing": "ports"
+        },
+        "shine": {
+          "email": "shinedemo@microsoft.com"
+        },
+        "dbnodes": [
+          {
+            "name": "hdb-node1",
+            "role": "worker"
+          }
+        ],
+        "loadbalancer": {}
+      }
+    ],
+    "application": {
+      "sid": "HN1",
+      "enable_deployment": true,
+      "scs_instance_number": "01",
+      "ers_instance_number": "02",
+      "scs_high_availability": false,
+      "application_server_count": 2,
+      "webdispatcher_count": 1,
+      "vm_sizing": "Default",
+      "authentication": {
+        "type": "key",
+        "username": "bdelangh"
+      },
+      "os": {
+        "publisher": "SUSE",
+        "offer": "sles-sap-12-sp5",
+        "sku":"gen1"
+      }
+    },
+    "software": {
+      "storage_account_sapbits": {
+        "is_existing": true,
+        "blob_container_name": null,
+        "file_share_name": "bits",
+        "name": "bdlsapmedia",
+        "arm_id": "/subscriptions/37d02782-ca89-46c0-abac-ef2c0ae81726/resourceGroups/SAPCloudWorkshop/providers/Microsoft.Storage/storageAccounts/bdlsapmedia",
+        "storage_access_key": "NEHT5eQuziA0h/3BlkAKuQQvQ0JIxjYBTf0clftmeE4LM/Q1260u2QvSHah4RVu8t/H3DiFNTehVBZSdJkdsWw=="
+      },
+      "downloader": {}
+    },
+    "sshkey": {
+      "path_to_public_key": "../tmp/sshkey.pub",
+      "path_to_private_key": "../tmp/sshkey"
+    },
+    "options": {
+      "enable_secure_transfer": true,
+      "ansible_execution": false,
+      "enable_prometheus": true
+    }
+  }
+  
