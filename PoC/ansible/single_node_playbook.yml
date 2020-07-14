@@ -35,7 +35,7 @@
   hosts: linux_bastion
   vars:
     config_json_file: ../modules/single_node_hana/temp.json
-  import_playbook: linux_bastion_host.yml
+    import_playbook: linux_bastion_host.yml
 
 - hosts: hdb0
   roles:
