@@ -6,3 +6,5 @@ terraform init --upgrade=true $tfdir
 terraform plan --var-file=$configdir/singleHANA.json $tfdir
 
 
+
+
