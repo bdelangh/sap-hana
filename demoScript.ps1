@@ -26,4 +26,10 @@ sudo su - hn1adm
 HDB info
 
 -------------------
+Compare HA
+ConfigFile : haHANARepo.json
+terraform plan --var-file=haHANARepo.json $tfdir
+
+(Note: terrafrom state file is needed from singleHANA)
+
 
